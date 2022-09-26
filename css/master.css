@@ -12,6 +12,9 @@
 body{
     font-family: 'Work Sans', sans-serif;
 }
+a{
+  text-decoration: none;
+}
 .container{
     margin: 0 auto;
     padding:0px 15px;
@@ -62,11 +65,11 @@ body{
     align-items: center;
   }
   .header .logo {
-    width: 60px;
-    filter: brightness(80%);
+    width: 80px;
+    border-radius: 50%;
   }
   .header .logo:hover{
-    filter: brightness(100%);
+    transform: scale(1.1);
   }
   .header .links {
     position: relative;
@@ -185,9 +188,9 @@ body{
 
   }
   .services{
-    padding: 60px;
+    padding-top:var(--section-padding) ;
   }
-   .services .services-content{
+  .services .services-content{
     display: grid;
     grid-template-columns:  repeat(auto-fill,minmax(300px,1fr)) ;
     gap: 30px;
@@ -222,10 +225,21 @@ body{
       text-align: center;
     }
     .services .services-content .col .image img{
-      width:300px;
-      height: 400px;
+      width: 100%;
       background-size: cover;
-
+      animation: top-left 4s linear infinite;
+      position: relative;
+    }
+    @keyframes top-left{
+      0%,100%{
+        top: 0;
+      }
+      40%{
+        top: -50px;
+      }
+      90%{
+        top: 50px;
+      }
     }
     .services .services-content .image::before{
       content: "";
@@ -370,11 +384,13 @@ body{
     justify-content: center;
     line-height: 40px;
     font-size: 18px;
+    flex-wrap: wrap;
   }
   .contact .contact-content .social i{
     margin-left: 20px;
     line-height: 40px;
     color: #10cab7;
+    display: block;
   }
   @media (max-width:767px) {
     .contact .contact-content .label,
